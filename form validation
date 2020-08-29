@@ -1,0 +1,131 @@
+<<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <!--go to bootstrap4 from w3schools.com then bs4 get started then MaxCDN and just copy paste here-->
+    <!--- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!---jQuery library-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!---Popper JS--->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!--- Latest compiled JavaScript --->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container"><br>
+      <h1 class="text-center text-success">Complete Form Validation in JavaScript</h1>
+      <div class="col-lg-8 m-auto d-block">
+      <form class="bg-light"name="myForm" onsubmit="return myFun()"action="#">
+        <div class="form-group">
+      <label>UserName</label>
+      <input type="text" id="user_name" class="form-control"value=""autocomplete="off">
+      <span id="Message"class="text-danger font-weight-bold"></span>
+      </div>
+      <div class="form-group">
+      <label>Password</label>
+      <input type="text" id="user_pass" class="form-control"value=""autocomplete="off">
+      <span id="Message1"class="text-danger font-weight-bold"></span>
+      </div>
+      <div class="form-group">
+        <label>ConfirmPassword</label>
+        <input type="text" id="Confirm_Password" class="form-control"value=""autocomplete="off">
+        <span id="Message2"class="text-danger font-weight-bold"></span>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="text" id="Email" class="form-control"value=""autocomplete="off">
+        <span id="Message3"class="text-danger font-weight-bold"></span>
+      </div>
+      <div class="form-group">
+        <label>Mobile Number</label>
+        <input type="number" id="mobile_num" class="form-control"value=""autocomplete="off">
+        <span id="Message4"class="text-danger font-weight-bold"></span>
+      </div><br>
+        <input type="Submit"value="Submit" name="Submit" class="btn btn-success"></<input>
+      </form>
+      </div>
+    </div>
+    <script type ="text/javascript">
+      function myFun(){
+    var a=document.getElementById("user_name").value;
+    var b=document.getElementById("user_pass").value;
+    var c=document.getElementById("Confirm_Password").value;
+    var d=document.getElementById("Email").value;
+    var e=document.getElementById("mobile_num").value;
+
+                    //UserName
+    if(a==""){
+      document.getElementById("Message").innerHTML="**Please fill UserName";
+      return false;
+    }
+    if((a.length<3)||(a.length>20)){
+      document.getElementById("Message").innerHTML="**UserName must be between 3 & 20 characters";
+      return false;
+    }
+    if(!isNaN(a)){
+      document.getElementById("Message").innerHTML="**Only characters are allowed";
+      return false;
+    }
+
+                     //password
+    if(b==""){
+      document.getElementById("Message1").innerHTML="**Please fill password";
+      return false;
+    }
+    if((b.length<5)||(b.length>20)){
+      document.getElementById("Message1").innerHTML="**Password must be between 5 & 20 characters";
+      return false;
+    }
+    if(b!=c){
+      document.getElementById("Message2").innerHTML="**Password is not same";
+      return false;
+    }
+
+                         //ConfirmPassword
+    if(c==""){
+      document.getElementById("Message2").innerHTML="**Password not matching";
+      return false;
+    }
+
+                                   //email
+    if(d==""){
+      document.getElementById("Message3").innerHTML="**Please fill email";
+      return false;
+    }
+    if(d.indexOf('@')<=0){
+      document.getElementById("Message3").innerHTML="**Invalid @ position";
+      return false;
+    }
+    if((d.charAt(d.length-4)!='.')&&(d.charAt(d.length-3)!='.')){
+      document.getElementById("Message3").innerHTML="**Invalid . position";
+      return false;
+    }
+
+                                 //mobile_num
+    if(e==""){
+      document.getElementById("Message4").innerHTML="**plz fill Mobile number";
+      return false;
+    }
+    if(e.length!=10){
+      document.getElementById("Message4").innerHTML="**Mobile number must be 10 digit";
+      return false;
+    }
+    if(isNaN(e)){
+      document.getElementById("Message4").innerHTML="**Only numbers are allowed";
+      return false;
+    }
+
+    if((e.charAt(0)!='9')&&(e.charAt(0)!='8')&&(e.charAt(0)!='7')){
+      document.getElementById("Message4").innerHTML="**Mobile number must start with 9,8 and 7 only";
+      return false;
+    }
+}
+</script>
+
+  </body>
+</html>
